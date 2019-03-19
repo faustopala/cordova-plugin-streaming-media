@@ -2,6 +2,7 @@
 
 For iOS and Android, by [Nicholas Hutchind](https://github.com/nchutchind)
 
+
 ## Description
 
 This plugin allows you to stream audio and video in a fullscreen, native player on iOS and Android.
@@ -12,7 +13,7 @@ This plugin allows you to stream audio and video in a fullscreen, native player 
 ## Installation
 
 ```
-cordova plugin add https://github.com/nchutchind/cordova-plugin-streaming-media
+cordova plugin add https://github.com/faustopala/cordova-plugin-streaming-media
 ```
 
 ### iOS specifics
@@ -34,8 +35,16 @@ cordova plugin add https://github.com/nchutchind/cordova-plugin-streaming-media
 
   // Play a video with callbacks
   var options = {
-    successCallback: function() {
-      console.log("Video was closed without error.");
+    successCallback: function(message) {
+      if( message == 'touched' )
+      {
+        console.log("Video close on screen touch.");
+      }
+      else
+      {
+        console.log("Video was closed without error.");
+      }
+
     },
     errorCallback: function(errMsg) {
       console.log("Error! " + errMsg);

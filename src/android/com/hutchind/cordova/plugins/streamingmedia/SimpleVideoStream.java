@@ -200,8 +200,10 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		if (mMediaController != null)
-			mMediaController.show();
+		StringBuilder sb = new StringBuilder();
+		sb.append("touched");
+		wrapItUp(RESULT_OK, sb.toString());
+		finish();
 		return false;
 	}
 }
